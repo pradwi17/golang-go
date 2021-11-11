@@ -4,21 +4,25 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
 )
 
 func main() {
 
 	scanner := bufio.NewScanner(os.Stdin)
 
-	fmt.Print("Masukan Nama: ")
+	fmt.Print("Name: ")
 	scanner.Scan()
 	var name = scanner.Text()
 
-	fmt.Print("Masukan Umur: ")
+	fmt.Print("Age: ")
 	scanner.Scan()
-	var age = scanner.Text()
+	var age, _ = strconv.Atoi(scanner.Text())
 
-	fmt.Println(name)
-	fmt.Println(age)
+	var count = age * 365 // counting how many days the user live
+
+	fmt.Println("Your name:", name)
+	fmt.Println("Your age:", age)
+	fmt.Println("Age in days:", count, "days")
 
 }
